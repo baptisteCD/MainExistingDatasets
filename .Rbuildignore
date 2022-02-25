@@ -1,0 +1,11 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^data-raw$
+dev_history.R
+^README\.Rmd$
+^\.idea$
+^dev$
+^inst/extdata$
+^doc$
+^Meta$
+$run_dev.*
