@@ -16,3 +16,5 @@ $run_dev.*
 ^.cache$
 ^codecov\.yml$
 ^\.github$
+^app\.R$
+^rsconnect$

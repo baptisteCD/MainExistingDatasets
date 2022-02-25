@@ -18,6 +18,7 @@ Imports:
     golem,
     htmltools,
     htmlwidgets,
+    pkgload,
     processx,
     rlang,
     shiny,
