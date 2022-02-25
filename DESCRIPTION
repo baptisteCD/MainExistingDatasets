@@ -22,7 +22,9 @@ Imports:
     rlang,
     shiny,
     utils
-Suggests: 
+Suggests:
+    BiocCheck,
+    covr,
     knitr,
     rmarkdown,
     testthat

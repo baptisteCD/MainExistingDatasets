@@ -14,3 +14,5 @@ $run_dev.*
 ^.local$
 ^.config$
 ^.cache$
+^codecov\.yml$
+^\.github$
