@@ -9,3 +9,8 @@ dev_history.R
 ^doc$
 ^Meta$
 $run_dev.*
+^Dockerfile$
+^\.dockerignore$
+^.local$
+^.config$
+^.cache$

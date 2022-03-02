@@ -8,3 +8,7 @@ inst/doc
 /doc/
 /Meta/
 *.tar.gz
+/Dockerfile
+.local/
+.config/
+.cache/
