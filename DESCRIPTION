@@ -11,9 +11,17 @@ License: GPL-3
 Depends:
     R (>= 2.10)
 Imports: 
+    attempt,
     config,
+    DT,
+    glue,
     golem,
-    shiny
+    htmltools,
+    htmlwidgets,
+    processx,
+    rlang,
+    shiny,
+    utils
 Suggests: 
     knitr,
     rmarkdown,
@@ -22,6 +30,7 @@ VignetteBuilder:
     knitr
 biocViews: BiomedicalInformatics, DataRepresentation, Visualization
 Encoding: UTF-8
+Language: en-US
 LazyData: false
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
