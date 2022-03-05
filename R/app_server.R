@@ -6,7 +6,21 @@ app_server <- function(input, output, session) {
     data(human_datasets, envir = environment())
 
     vars <- reactiveValues(
-        data = human_datasets
+        data = human_datasets,
+        ncol = NCOL(human_datasets)
+    )
+
+    proxy <- dataTableProxy("table_datasets")
+
+    observeEvent(
+        input$add,
+        {
+            req(proxy)
+            proxy %>% addRow(
+                data.frame(t(rep("", vars$ncol))),
+                resetPaging = FALSE
+            )
+        }
     )
 
     output$table_datasets <- DT::renderDataTable(
@@ -14,6 +28,7 @@ app_server <- function(input, output, session) {
             vars$data
         },
         class = "cell-border stripe",
+        server = FALSE,
         rownames = FALSE,
         extensions = c("Scroller", "Buttons"),
         selection = "none",

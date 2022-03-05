@@ -8,7 +8,8 @@ app_ui <- function(request) {
         fluidPage(
             title = "Main existing datasets",
             h1("Main existing datasets"),
-            DT::dataTableOutput("table_datasets")
+            DT::dataTableOutput("table_datasets"),
+            actionButton("add", "Add Row")
         )
     )
 }
