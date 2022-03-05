@@ -6,7 +6,9 @@ app_ui <- function(request) {
     tagList(
         golem_add_external_resources(),
         fluidPage(
-            h1("MainExistingDatasets")
+            title = "Main existing datasets",
+            h1("Main existing datasets"),
+            DT::dataTableOutput("table_datasets")
         )
     )
 }
