@@ -4,9 +4,11 @@
 #' @noRd
 app_server <- function(input, output, session) {
     data(human_datasets, envir = environment())
+    path <- file.path("inst", "extdata")
+    file <- "TableOfMainExistingDatasets.xlsx"
 
     vars <- reactiveValues(
-        data = human_datasets,
+        data = read.xlsx(file.path(path, file)),
         ncol = NCOL(human_datasets)
     )
 
@@ -15,20 +17,24 @@ app_server <- function(input, output, session) {
     observeEvent(
         input$add,
         {
-            req(proxy)
-            proxy %>% addRow(
-                data.frame(t(rep("", vars$ncol))),
-                resetPaging = FALSE
-            )
+            temp <- isolate(t(rep("", vars$ncol)))
+            colnames(temp) <- colnames(vars$data)
+            vars$data <- rbind(vars$data, temp)
         }
     )
+
+    observeEvent(input$table_datasets_cell_edit, {
+        vars$data <- editData(vars$data, input$table_datasets_cell_edit, rownames = FALSE)
+        write.xlsx(vars$data, file = file.path(path, file))
+        replaceData(proxy, vars$data, resetPaging = FALSE)
+    })
 
     output$table_datasets <- DT::renderDataTable(
         {
             vars$data
         },
         class = "cell-border stripe",
-        server = FALSE,
+        server = TRUE,
         rownames = FALSE,
         extensions = c("Scroller", "Buttons"),
         selection = "none",
@@ -50,8 +56,8 @@ app_server <- function(input, output, session) {
                 list(
                     extend = "collection",
                     buttons = list(
-                        list(extend = "csv", filename = "human_datasets"),
-                        list(extend = "excel", filename = "human_datasets")
+                        list(extend = "csv", filename = file),
+                        list(extend = "excel", filename = file)
                     ),
                     text = "Download"
                 ),
