@@ -12,6 +12,25 @@ app_server <- function(input, output, session) {
     output$table_datasets <- DT::renderDataTable(
         {
             vars$data
-        }
+        },
+        class = "cell-border stripe",
+        rownames = FALSE,
+        extensions = c("Scroller", "Buttons"),
+        selection = "none",
+        editable = "cell",
+        filter = "top",
+        options = list(
+            dom = "Bfrtip",
+            scrollY = 600, scrollX = 400, scroller = TRUE,
+            buttons = list(
+                "copy", 
+                list(
+                    extend = "collection",
+                    buttons = c("csv", "excel"),
+                    text = "Download"
+                ),
+                "colvis"
+            )
+        )
     )
 }
