@@ -19,14 +19,25 @@ app_server <- function(input, output, session) {
         selection = "none",
         editable = "cell",
         filter = "top",
+        callback = JS('$("button.buttons-copy").css("background","#fff");
+                    $("button.buttons-collection").css("background","#fff");
+                    return table;'),
         options = list(
+            initComplete = JS(
+                "function(settings, json) {",
+                "$(this.api().table().header()).css({'background-color': '#000', 'color': '#fff'});",
+                "}"
+            ),
             dom = "Bfrtip",
             scrollY = 600, scrollX = 400, scroller = TRUE,
             buttons = list(
-                "copy", 
+                "copy",
                 list(
                     extend = "collection",
-                    buttons = c("csv", "excel"),
+                    buttons = list(
+                        list(extend = "csv", filename = "human_datasets"),
+                        list(extend = "excel", filename = "human_datasets")
+                    ),
                     text = "Download"
                 ),
                 "colvis"
