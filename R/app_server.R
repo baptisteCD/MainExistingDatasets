@@ -12,23 +12,6 @@ app_server <- function(input, output, session) {
         ncol = NCOL(human_datasets)
     )
 
-    proxy <- dataTableProxy("table_datasets")
-
-    observeEvent(
-        input$add,
-        {
-            temp <- isolate(t(rep("", vars$ncol)))
-            colnames(temp) <- colnames(vars$data)
-            vars$data <- rbind(vars$data, temp)
-        }
-    )
-
-    observeEvent(input$table_datasets_cell_edit, {
-        vars$data <- editData(vars$data, input$table_datasets_cell_edit, rownames = FALSE)
-        write.xlsx(vars$data, file = file.path(path, file))
-        replaceData(proxy, vars$data, resetPaging = FALSE)
-    })
-
     output$table_datasets <- DT::renderDataTable(
         {
             vars$data
@@ -38,7 +21,6 @@ app_server <- function(input, output, session) {
         rownames = FALSE,
         extensions = c("Scroller", "Buttons"),
         selection = "none",
-        editable = "cell",
         filter = "top",
         callback = JS('$("button.buttons-copy").css("background","#fff");
                     $("button.buttons-collection").css("background","#fff");
