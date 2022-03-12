@@ -1,0 +1,40 @@
+Package: MainExistingDatasets
+Title: Main existing human datasets
+Version: 0.1.0
+Authors@R: c(
+    person("Etienne", "Camenen", , "etienne.camenen@gmail.com", role = c("aut", "cre")),
+    person("Baptiste", "Couvy-Duchesne", role = "aut")
+  )
+Description: Shiny for Open Science to visualize, share, and inventory the
+    main existing human datasets for researchers.
+License: GPL-3
+Depends:
+    R (>= 2.10)
+Imports: 
+    attempt,
+    config,
+    DT,
+    glue,
+    golem,
+    htmltools,
+    htmlwidgets,
+    openxlsx,
+    pkgload,
+    processx,
+    rlang,
+    shiny,
+    utils
+Suggests:
+    BiocCheck,
+    covr,
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
+biocViews: BiomedicalInformatics, DataRepresentation, Visualization
+Encoding: UTF-8
+Language: en-US
+LazyData: false
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2

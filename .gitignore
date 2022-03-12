@@ -1,0 +1,14 @@
+.Rproj.user
+.idea/
+dev/
+inst/extdata/
+/.Rhistory
+*.Rproj
+inst/doc
+/doc/
+/Meta/
+*.tar.gz
+/Dockerfile
+.local/
+.config/
+.cache/
