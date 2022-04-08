@@ -1,0 +1,10 @@
+h1, h4, p
+{
+    text-align: center;
+}
+
+.leaflet
+{
+     display: block;
+     margin: 0px auto;
+}

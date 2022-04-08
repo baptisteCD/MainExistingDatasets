@@ -29,7 +29,8 @@ app_server <- function(input, output, session) {
         tm_shape(world, bbox = bb(matrix(c(50, 75, -20, -50), 2, 2))) +
             tm_borders(col = "gray", alpha = 0.5) +
             tm_shape(human_dataset_countries()) +
-            tm_fill(col = "red", alpha = 0.3, id = "name_long")
+            tm_fill(col = "red", alpha = 0.3, id = "name_long") +
+            tm_layout(title = "Datasets around the world")
     })
 
     output$table_datasets <- DT::renderDataTable(
