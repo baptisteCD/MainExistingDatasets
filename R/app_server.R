@@ -4,13 +4,33 @@
 #' @noRd
 app_server <- function(input, output, session) {
     data(human_datasets, envir = environment())
+    data(world, package = "spData", envir = environment())
     path <- file.path("inst", "extdata")
     file <- "TableOfMainExistingDatasets.xlsx"
 
     vars <- reactiveValues(
-        data = read.xlsx(file.path(path, file)),
-        ncol = NCOL(human_datasets)
+        data = read.xlsx(file.path(path, file))
     )
+
+    human_dataset_countries <- reactive({
+        countries_db <- unique(trimws(unlist(strsplit(vars$data$Country, "[&/]"))))
+        countries_db <- gsub("-", " ", countries_db[!grepl("wide", countries_db)])
+
+        countries_db[countries_db == "UK"] <- "United Kingdom"
+        countries_db[countries_db == "Sout Korea"] <- "Republic of Korea"
+        countries_db[countries_db == "Barcelona"] <- "Spain"
+
+        countries <- intersect(countries_db, world$name_long)
+
+        world[world$name_long %in% countries, "name_long"]
+    })
+
+    output$map <- renderTmap({
+        tm_shape(world, bbox = bb(matrix(c(50, 75, -20, -50), 2, 2))) +
+            tm_borders(col = "gray", alpha = 0.5) +
+            tm_shape(human_dataset_countries()) +
+            tm_fill(col = "red", alpha = 0.3, id = "name_long")
+    })
 
     output$table_datasets <- DT::renderDataTable(
         {

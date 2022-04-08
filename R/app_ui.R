@@ -8,7 +8,18 @@ app_ui <- function(request) {
         fluidPage(
             title = "Main existing datasets",
             h1("Main existing datasets"),
-            DT::dataTableOutput("table_datasets")
+            DT::dataTableOutput("table_datasets"),
+            br(),
+            fluidRow(
+                column(
+                    width = 3,
+                    ""
+                ),
+                column(
+                    width = 2,
+                    tmapOutput("map", width = 400, height = 300)
+                )
+            )
         )
     )
 }
