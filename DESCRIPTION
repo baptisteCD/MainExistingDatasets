@@ -23,6 +23,10 @@ Imports:
     processx,
     rlang,
     shiny,
+    sf,
+    spData,
+    tmap,
+    tmaptools,
     utils
 Suggests:
     BiocCheck,
