@@ -1,1 +1,1 @@
-utils::globalVariables(c("data", "human_datasets", "world"))
+utils::globalVariables(c("data", "human_datasets", "world", "Country"))

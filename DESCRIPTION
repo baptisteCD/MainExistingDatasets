@@ -10,20 +10,21 @@ Description: Shiny for Open Science to visualize, share, and inventory the
 License: GPL-3
 Depends:
     R (>= 2.10)
-Imports: 
-    attempt,
+Imports:
     config,
+    dplyr,
     DT,
     glue,
     golem,
     htmltools,
     htmlwidgets,
+    magrittr,
     openxlsx,
     pkgload,
     processx,
     rlang,
-    shiny,
     sf,
+    shiny,
     spData,
     tmap,
     tmaptools,
