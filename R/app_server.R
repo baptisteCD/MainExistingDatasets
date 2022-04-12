@@ -26,11 +26,9 @@ app_server <- function(input, output, session) {
             vars$data
         },
         class = "cell-border stripe",
-        server = TRUE,
         rownames = FALSE,
         extensions = c("Scroller", "Buttons"),
         selection = "none",
-        filter = "top",
         callback = JS('$("button.buttons-copy").css("background","#fff");
                     $("button.buttons-collection").css("background","#fff");
                     return table;'),
@@ -41,7 +39,20 @@ app_server <- function(input, output, session) {
                 "}"
             ),
             dom = "Bfrtip",
+            columnDefs = list(
+                list(
+                    targets = "_all",
+                    render = JS(
+                        "function(data, type, row, meta) {",
+                        "return type === 'display' && data != null && data.length > 50 ?",
+                        "'<span title=\"' + data + '\">' + data.substr(0, 50) + '...</span>' : data;",
+                        "}"
+                    )
+                )
+            ),
             scrollY = 600, scrollX = 400, scroller = TRUE,
+            searchHighlight = TRUE,
+            search = list(regex = TRUE),
             buttons = list(
                 "copy",
                 list(
