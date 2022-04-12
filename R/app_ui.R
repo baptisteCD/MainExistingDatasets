@@ -9,15 +9,22 @@ app_ui <- function(request) {
             title = "Main existing datasets",
             h1(toupper("Main existing datasets")),
             h4("Shiny for Open Science to visualize, share, and inventory the main existing human datasets for researchers."),
+            tags$p(
+                "Maintainer : ",
+                tags$a(
+                    href = "https://github.com/ecamenen",
+                    "Etienne camenen"
+                )
+            ),
             br(),
-            tmapOutput("map", width = 400, height = 300),
+            tmapOutput("map", width = 550, height = 400),
             tags$p(
                 br(),
                 strong("Tips:"),
                 br(),
                 "- To add new data please contact",
                 tags$a(
-                    href = "baptiste.couvy@icm-institute.org",
+                    href = "mailto:baptiste.couvy@icm-institute.org",
                     "Baptiste Couvy-Duchesne"
                 ),
                 "or make a PR on our",
@@ -26,7 +33,7 @@ app_ui <- function(request) {
                     "Github."
                 ),
                 br(),
-                "- Use the filters under each column for a better navigation through the data."
+                "- Use the search field for a better navigation through the data."
             ),
             br(),
             DT::dataTableOutput("table_datasets")
