@@ -26,6 +26,7 @@ Imports:
     sf,
     shiny,
     spData,
+    tidyr,
     tmap,
     tmaptools,
     utils
