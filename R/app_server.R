@@ -5,15 +5,28 @@
 app_server <- function(input, output, session) {
     data(human_datasets, envir = environment())
     data(world, package = "spData", envir = environment())
-    path <- file.path("inst", "extdata")
     file <- "TableOfMainExistingDatasets.xlsx"
+    cols <- colnames(human_datasets)[7:12]
 
     vars <- reactiveValues(
-        data = read.xlsx(file.path(path, file))
+        data = human_datasets
+    )
+
+    updateSelectizeInput(
+        inputId = "na_col",
+        choices = sort(cols),
+        server = TRUE,
+        selected = NULL,
+        options = list(
+            maxItems = length(cols),
+            maxOptions = length(cols),
+            placeholder = "Select a column",
+            mode = "multi"
+        )
     )
 
     output$map <- renderTmap({
-        human_dataset <- get_table_countries(vars$data)
+        human_dataset <- get_table_countries(human_datasets, world)
         tm_shape(world, bbox = bb(matrix(c(50, 75, -20, -50), 2, 2))) +
             tm_borders(col = "gray", alpha = 0.5) +
             tm_shape(human_dataset) +
@@ -21,8 +34,17 @@ app_server <- function(input, output, session) {
             tm_layout(title = "Datasets around the world")
     })
 
+    observe({
+        if (!is.null(input$na_col) && input$na_col != "") {
+            vars$data <- drop_na(human_datasets, all_of(input$na_col))
+        } else {
+            vars$data <- human_datasets
+        }
+    })
+
     output$table_datasets <- DT::renderDataTable(
         {
+            refresh <- input$na_col
             vars$data
         },
         class = "cell-border stripe",

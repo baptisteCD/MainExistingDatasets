@@ -1,4 +1,4 @@
-get_table_countries <- function(x) {
+get_table_countries <- function(x, world) {
     countries_db <- x %>% dplyr::select(Country)
     countries_db <- trimws(unlist(strsplit(countries_db$Country, "[&/]")))
     countries_db <- gsub("-", " ", countries_db[!grepl("wide", countries_db)])
@@ -17,8 +17,6 @@ get_table_countries <- function(x) {
 
     countries_stats <- data.frame(table(countries_db))
     colnames(countries_stats)[2] <- "N"
-
-    countries <- intersect(countries_db, world$name_long)
 
     human_dataset_stats <- merge(
         world,

@@ -36,6 +36,11 @@ app_ui <- function(request) {
                 "- Use the search field for a better navigation through the data."
             ),
             br(),
+            selectizeInput(
+                inputId = "na_col",
+                label = "Remove missing values in selected column(s)",
+                choices = NULL
+            ),
             DT::dataTableOutput("table_datasets")
         )
     )
