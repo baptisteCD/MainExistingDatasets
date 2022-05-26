@@ -16,6 +16,7 @@ Imports:
     DT,
     glue,
     golem,
+    grDevices,
     htmltools,
     htmlwidgets,
     magrittr,

@@ -16,7 +16,7 @@ get_table_countries <- function(x, world) {
     ] <- "United States"
 
     countries_stats <- data.frame(table(countries_db))
-    colnames(countries_stats)[2] <- "N"
+    colnames(countries_stats)[2] <- "Nb. of samples"
 
     human_dataset_stats <- merge(
         world,
@@ -25,5 +25,5 @@ get_table_countries <- function(x, world) {
         by.y = 1
     )
 
-    human_dataset_stats[, c("name_long", "N")]
+    human_dataset_stats[, c("name_long", "Nb. of samples")]
 }

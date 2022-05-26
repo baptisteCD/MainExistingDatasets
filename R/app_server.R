@@ -3,7 +3,7 @@
 #' @param input,output,session Internal parameters for {shiny}.
 #' @noRd
 app_server <- function(input, output, session) {
-    data(human_datasets, envir = environment())
+    data(human_datasets, package = "MainExistingDatasets", envir = environment())
     data(world, package = "spData", envir = environment())
     file <- "TableOfMainExistingDatasets.xlsx"
     cols <- colnames(human_datasets)[7:12]
@@ -26,11 +26,12 @@ app_server <- function(input, output, session) {
     )
 
     output$map <- renderTmap({
+        pdf(file = NULL)
         human_dataset <- get_table_countries(human_datasets, world)
         tm_shape(world, bbox = bb(matrix(c(50, 75, -20, -50), 2, 2))) +
             tm_borders(col = "gray", alpha = 0.5) +
             tm_shape(human_dataset) +
-            tm_fill(col = "N", id = "name_long", style = "cat") +
+            tm_fill(col = "Nb. of samples", id = "name_long", style = "cat") +
             tm_layout(title = "Datasets around the world")
     })
 
