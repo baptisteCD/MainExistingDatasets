@@ -8,6 +8,7 @@
 data(human_datasets)
 }
 \description{
-A table of human datasets from various sources (e.g., genetics, imagery, omics) and accesible in open-access.
+A table of human datasets from various sources (e.g., genetics, imagery,
+omics) and accesible in open-access.
 }
 \keyword{datasets}

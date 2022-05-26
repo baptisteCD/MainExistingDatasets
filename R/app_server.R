@@ -3,7 +3,11 @@
 #' @param input,output,session Internal parameters for {shiny}.
 #' @noRd
 app_server <- function(input, output, session) {
-    data(human_datasets, package = "MainExistingDatasets", envir = environment())
+    data(
+        human_datasets,
+        package = "MainExistingDatasets",
+        envir = environment()
+    )
     data(world, package = "spData", envir = environment())
     file <- "TableOfMainExistingDatasets.xlsx"
     cols <- colnames(human_datasets)[7:12]
