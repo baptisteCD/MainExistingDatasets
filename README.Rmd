@@ -30,9 +30,8 @@ You can install the development version from [GitHub](https://github.com/) with:
 # install.packages("devtools")
 devtools::install_github("baptisteCD/MainExistingDatasets")
 ```
-## Example
+## Run
 
-```{r example}
-library(MainExistingDatasets)
-## basic example code
+```r
+MainExistingDatasets::run_app()
 ```
