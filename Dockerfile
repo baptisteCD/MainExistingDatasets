@@ -9,20 +9,15 @@ MAINTAINER Etienne CAMENEN (etienne.camenen@gmail.com)
 ENV PKGS cmake git libcurl4-openssl-dev libgdal-dev liblapack-dev libproj-dev libssl-dev libudunits2-dev libxml2-dev qpdf
 ENV _R_CHECK_FORCE_SUGGESTS_ FALSE
 ENV TOOL_NAME MainExistingDatasets
-ENV TOOL_VERSION 0.1.0
+ENV TOOL_VERSION 0.3.0
 
 RUN apt-get update --allow-releaseinfo-change -qq && \
-   apt-get install -y ${PKGS}
-
-RUN mkdir /usr/app
-COPY . /usr/app
-
-RUN R -e 'dep <- desc::desc_get_deps("./usr/app/DESCRIPTION"); install.packages(dep[dep$type == "Imports", ]$package)'
-RUN cd /usr/app  && \
-    R -e "devtools::install(upgrade = 'never')"
-
-RUN chown -R shiny usr/app/
-USER shiny
+    apt-get install -y ${PKGS}
+RUN R -e "devtools::install_github('baptisteCD/"${TOOL_NAME}"', ref = '"${TOOL_VERSION}"')"
+RUN apt-get purge -y git g++ && \
+	apt-get autoremove --purge -y && \
+	apt-get clean && \
+	rm -rf /var/lib/{cache,log}/ /tmp/* /var/tmp/*
 
 EXPOSE 3838
 
