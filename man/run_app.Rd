@@ -45,7 +45,7 @@ to stop the application (usually by pressing Ctrl+C or Esc).
 }
 \details{
 For more information about this function, please take a look at
-\url{https://cran.r-project.org/web/packages/golem/vignettes/c_deploy.html}.
+\url{https://CRAN.R-project.org/package=golem/vignettes/c_deploy.html}.
 }
 \examples{
 \dontrun{

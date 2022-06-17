@@ -6,7 +6,7 @@
 #' @inheritParams shiny::shinyApp
 #' @inherit shiny::runApp description
 #' @details For more information about this function, please take a look at 
-#' \url{https://cran.r-project.org/web/packages/golem/vignettes/c_deploy.html}.
+#' \url{https://CRAN.R-project.org/package=golem/vignettes/c_deploy.html}.
 #' @examples
 #' \dontrun{
 #' # Start app in the current working directory
