@@ -36,6 +36,23 @@ expression in order for the match to be considered successful.}
 \item{...}{arguments to pass to golem_opts.
 See \code{?golem::get_golem_options} for more details.}
 }
+\value{
+An object that represents the app.
+}
 \description{
-Run the Shiny Application
+Runs a Shiny application. This function normally does not return; interrupt R
+to stop the application (usually by pressing Ctrl+C or Esc).
+}
+\details{
+For more information about this function, please take a look at
+\url{https://CRAN.R-project.org/package=golem/vignettes/c_deploy.html}.
+}
+\examples{
+\dontrun{
+# Start app in the current working directory
+run_app()
+
+# Start app in a subdirectory called myapp
+run_app("myapp")
+}
 }

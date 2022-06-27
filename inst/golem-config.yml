@@ -1,6 +1,6 @@
 default:
   golem_name: MainExistingDatasets
-  golem_version: 0.3.0
+  golem_version: 1.0.0
   app_prod: no
 production:
   app_prod: yes

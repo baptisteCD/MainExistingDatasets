@@ -4,7 +4,7 @@
 \name{MainExistingDatasets-package}
 \alias{MainExistingDatasets}
 \alias{MainExistingDatasets-package}
-\title{MainExistingDatasets: Main existing human datasets}
+\title{MainExistingDatasets: Main Existing Human Datasets}
 \description{
 Shiny for Open Science to visualize, share, and inventory the main existing human datasets for researchers.
 }
