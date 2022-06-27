@@ -8,7 +8,13 @@ app_ui <- function(request) {
         fluidPage(
             title = "Main existing datasets",
             h1(toupper("Main existing datasets")),
-            h4("Shiny for Open Science to visualize, share, and inventory the main existing human datasets for researchers."),
+            h4(
+                paste(
+                    "Shiny for Open Science to visualize, share, and",
+                    "inventory the main existing human datasets for",
+                    "researchers."
+                )
+            ),
             tags$p(
                 "Maintainer : ",
                 tags$a(
