@@ -16,6 +16,10 @@ existing human datasets for researchers.
 
 ## Installation
 
+Required: - Softwares : R (≥ 2.10) - R libraries : see the
+[DESCRIPTION](https://github.com/baptisteCD/MainExistingDatasets/blob/develop/DESCRIPTION)
+file.
+
 You can install the development version from
 [GitHub](https://github.com/) with:
 
@@ -24,9 +28,14 @@ You can install the development version from
 devtools::install_github("baptisteCD/MainExistingDatasets")
 ```
 
-## Example
+## Run the Shiny server
 
 ``` r
-library(MainExistingDatasets)
-## basic example code
+MainExistingDatasets::run_app()
+```
+
+## Load the dataset
+
+``` r
+data(human_datasets, package = "MainExistingDatasets")
 ```

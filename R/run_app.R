@@ -5,7 +5,7 @@
 #' @return An object that represents the app.
 #' @inheritParams shiny::shinyApp
 #' @inherit shiny::runApp description
-#' @details For more information about this function, please take a look at 
+#' @details For more information about this function, please take a look at
 #' \url{https://CRAN.R-project.org/package=golem/vignettes/c_deploy.html}.
 #' @examples
 #' \dontrun{
