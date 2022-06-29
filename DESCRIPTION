@@ -1,6 +1,6 @@
 Package: MainExistingDatasets
 Title: Main Existing Human Datasets
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(
     person("Etienne", "Camenen", , "etienne.camenen@gmail.com", role = c("aut", "cre")),
     person("Baptiste", "Couvy-Duchesne", role = "aut")

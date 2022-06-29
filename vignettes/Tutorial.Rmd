@@ -14,10 +14,17 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r setup}
-library(MainExistingDatasets)
+## Run the Shiny server
+```r
+MainExistingDatasets::run_app()
 ```
 
-```{r end}
+## Load the dataset
+```r
+data(human_datasets, package = "MainExistingDatasets")
+```
+
+## Session information
+```{r end, echo = FALSE}
 sessionInfo()
 ```
