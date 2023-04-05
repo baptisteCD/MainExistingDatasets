@@ -1,6 +1,6 @@
 Package: MainExistingDatasets
 Title: Main Existing Human Datasets
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(
     person("Etienne", "Camenen", , "etienne.camenen@gmail.com", role = c("aut", "cre")),
     person("Baptiste", "Couvy-Duchesne", role = "aut")
@@ -44,4 +44,4 @@ Encoding: UTF-8
 Language: en-US
 LazyData: false
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.3
