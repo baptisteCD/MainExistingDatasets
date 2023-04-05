@@ -18,3 +18,4 @@ $run_dev.*
 ^\.github$
 ^app\.R$
 ^rsconnect$
+.*BiocCheck.*

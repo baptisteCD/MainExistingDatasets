@@ -11,3 +11,4 @@ inst/doc
 .local/
 .config/
 .cache/
+*BiocCheck*
