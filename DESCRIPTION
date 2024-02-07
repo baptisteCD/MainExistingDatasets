@@ -43,5 +43,7 @@ biocViews: BiomedicalInformatics, DataRepresentation, Visualization
 Encoding: UTF-8
 Language: en-US
 LazyData: false
+URL: https://github.com/baptisteCD/MainExistingDatasets
+BugReports: https://github.com/baptisteCD/MainExistingDatasets/issues
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
